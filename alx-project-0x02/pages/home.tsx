@@ -2,41 +2,41 @@ import Header from "@/components/layout/Header";
 import Card from "@/components/common/Card";
 import React from "react";
 import { v4 as uuidv4 } from "uuid"; // For generating unique IDs for posts
-import PostModal from "../components/common/PostModal";
-import { Post } from "../interfaces"; // Import the Post interface
+import PostModal from "@/components/common/PostModal";
+import { Post } from "@/interfaces"; // Import the Post interface
 
-const Homepage = () => {
-  return (
-    <div>
-      <Header />
-      <div>
-        <h1>This is the heading to my homepage</h1>
-      </div>
-      <div>
-        <Card
-          title="First Card"
-          content="This is the content of the first card. It contains some interesting information."
-        />
-        <Card
-          title="Second Card"
-          content="Here's some crucial content for the second card. Pay close attention to this!"
-        />
+// const Homepage = () => {
+//   return (
+//     <div>
+//       <Header />
+//       <div>
+//         <h1>This is the heading to my homepage</h1>
+//       </div>
+//       <div>
+//         <Card
+//           title="First Card"
+//           content="This is the content of the first card. It contains some interesting information."
+//         />
+//         <Card
+//           title="Second Card"
+//           content="Here's some crucial content for the second card. Pay close attention to this!"
+//         />
 
-        <Card
-          title="Third Card: Fun Facts"
-          content="Did you know that the average person walks the equivalent of three times around the world in a lifetime?"
-        />
+//         <Card
+//           title="Third Card: Fun Facts"
+//           content="Did you know that the average person walks the equivalent of three times around the world in a lifetime?"
+//         />
 
-        <Card
-          title="Fourth Card: Project Update"
-          content="The project is progressing well and is on track for its scheduled release."
-        />
-      </div>
-    </div>
-  );
-};
+//         <Card
+//           title="Fourth Card: Project Update"
+//           content="The project is progressing well and is on track for its scheduled release."
+//         />
+//       </div>
+//     </div>
+//   );
+// };
 
-const HomePage: React.FC = () => {
+const Homepage: React.FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [posts, setPosts] = useState<Post[]>([
     {
@@ -83,36 +83,30 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
-      <h1>Welcome to the Home Page!</h1>
+      <Header />
+      <main className="mx-auto mt-4 p-4 container">
+        <h1 className="mb-4 font-bold text-3xl">Welcome to the Home Page!</h1>
 
-      <button
-        onClick={handleOpenModal}
-        style={{
-          padding: "10px 20px",
-          backgroundColor: "#28a745",
-          color: "white",
-          border: "none",
-          borderRadius: "4px",
-          cursor: "pointer",
-          marginBottom: "20px",
-        }}
-      >
-        Add New Post
-      </button>
+        <button
+          onClick={handleOpenModal}
+          className="bg-green-500 hover:bg-green-600 mb-6 px-5 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-offset-2 text-white"
+        >
+          Add New Post
+        </button>
 
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {posts.map((post) => (
-          <Card key={post.id} title={post.title} content={post.content} />
-        ))}
-      </div>
+        <div className="flex flex-wrap gap-4">
+          {posts.map((post) => (
+            <Card key={post.id} title={post.title} content={post.content} />
+          ))}
+        </div>
 
-      <PostModal
-        isOpen={isModalOpen}
-        onClose={handleCloseModal}
-        onSubmit={handleAddPost}
-      />
+        <PostModal
+          isOpen={isModalOpen}
+          onClose={handleCloseModal}
+          onSubmit={handleAddPost}
+        />
+      </main>
     </div>
   );
 };
-
 export default Homepage;
