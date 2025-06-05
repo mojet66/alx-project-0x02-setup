@@ -24,3 +24,17 @@ export interface ButtonProps {
   type?: "button" | "submit" | "reset"; // Optional button type
   disabled?: boolean; // Optional disabled state
 }
+
+export interface PostProps {
+  id: number; // The ID from JSONPlaceholder
+  title: string;
+  content: string; // Maps to 'body' from JSONPlaceholder API
+  userId: number;
+}
+
+export interface JsonPlaceholderPost {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+}
