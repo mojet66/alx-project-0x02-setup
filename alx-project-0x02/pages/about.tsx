@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../components/common/Button"; // Adjust the path if necessary
+import Button from "@/components/common/Button"; // Adjust the path if necessary
 
 const AboutPage: React.FC = () => {
   const handleButtonClick = (buttonName: string) => {
