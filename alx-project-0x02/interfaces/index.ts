@@ -38,3 +38,42 @@ export interface JsonPlaceholderPost {
   title: string;
   body: string;
 }
+
+export interface Address {
+  street: string;
+  suite: string;
+  city: string;
+  zipcode: string;
+  geo: {
+    lat: string;
+    lng: string;
+  };
+}
+
+export interface Company {
+  name: string;
+  catchPhrase: string;
+  bs: string;
+}
+
+export interface User {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: Address;
+  phone: string;
+  website: string;
+  company: Company;
+}
+
+// New: UserProps interface for UserCard component
+export interface UserCardProps {
+  id: number;
+  name: string;
+  email: string;
+  street: string; // Flattening address for direct props
+  suite: string;
+  city: string;
+  zipcode: string;
+}

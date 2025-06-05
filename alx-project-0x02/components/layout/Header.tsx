@@ -39,6 +39,16 @@ const Header: React.FC = () => {
               Posts
             </Link>
           </li>
+          <li>
+            <Link href="/users" className="hover:text-gray-300">
+              Users
+            </Link>
+          </li>
+          <li>
+            <Link href="/index" className="hover:text-gray-300">
+              Index
+            </Link>
+          </li>
         </ul>
       </nav>
     </header>
