@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonProps } from "@/interfaces"; // Adjust the path if necessary
+import { type ButtonProps } from "@/interfaces";
 
 const Button: React.FC<ButtonProps> = ({
   children,
